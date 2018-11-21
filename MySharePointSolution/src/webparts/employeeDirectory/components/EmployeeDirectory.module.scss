@@ -1,6 +1,6 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 
-.graphConsumer {
+.employeeDirectory {
   .container {
     max-width: 700px;
     margin: 0px auto;
@@ -24,15 +24,6 @@
 
   .title {
     @include ms-font-xl;
-    @include ms-fontColor-white;
-  }
-
-  .form {
-    @include ms-font-l;
-    @include ms-fontColor-white;
-  }
-
-  label {
     @include ms-fontColor-white;
   }
 

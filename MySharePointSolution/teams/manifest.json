@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.2/MicrosoftTeams.schema.json",
   "manifestVersion": "1.2",
-  "packageName": "GraphConsumer",
-  "id": "3747e451-8469-4a5e-a92d-33380d26c4c4",
+  "packageName": "EmployeeDirectory",
+  "id": "843c59d2-9797-4d36-83ff-3d1c13298eae",
   "version": "0.1",
   "developer": {
     "name": "SPFx + Teams Dev",
@@ -11,11 +11,11 @@
     "termsOfUseUrl": "https://www.microsoft.com/en-us/servicesagreement"
   },
   "name": {
-    "short": "GraphConsumer"
+    "short": "EmployeeDirectory"
   },
   "description": {
-    "short": "GraphConsumer description",
-    "full": "GraphConsumer description"
+    "short": "EmployeeDirectory description",
+    "full": "EmployeeDirectory description"
   },
   "icons": {
     "outline": "tab20x20.png",
@@ -24,7 +24,7 @@
   "accentColor": "#004578",
   "configurableTabs": [
     {
-      "configurationUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest={teamSitePath}/_layouts/15/teamshostedapp.aspx%3FopenPropertyPane=true%26teams%26componentId=3747e451-8469-4a5e-a92d-33380d26c4c4",
+      "configurationUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest={teamSitePath}/_layouts/15/teamshostedapp.aspx%3FopenPropertyPane=true%26teams%26componentId=843c59d2-9797-4d36-83ff-3d1c13298eae",
       "canUpdateConfiguration": false,
       "scopes": [
         "team"

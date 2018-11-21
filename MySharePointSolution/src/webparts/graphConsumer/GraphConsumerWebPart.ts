@@ -1,29 +1,31 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import * as React from "react";
+import * as ReactDom from "react-dom";
+import { Version } from "@microsoft/sp-core-library";
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
+  PropertyPaneChoiceGroup
+} from "@microsoft/sp-webpart-base";
 
-import * as strings from 'GraphConsumerWebPartStrings';
-import GraphConsumer from './components/GraphConsumer';
-import { IGraphConsumerProps } from './components/IGraphConsumerProps';
+import * as strings from "GraphConsumerWebPartStrings";
+import GraphConsumer from "./components/GraphConsumer";
+import { IGraphConsumerProps } from "./components/IGraphConsumerProps";
+import { ClientMode } from "./components/ClientMode";
 
 export interface IGraphConsumerWebPartProps {
-  description: string;
+  clientMode: ClientMode;
 }
 
-export default class GraphConsumerWebPart extends BaseClientSideWebPart<IGraphConsumerWebPartProps> {
-
+export default class GraphConsumerWebPart extends BaseClientSideWebPart<
+  IGraphConsumerWebPartProps
+> {
   public render(): void {
-    const element: React.ReactElement<IGraphConsumerProps > = React.createElement(
-      GraphConsumer,
-      {
-        description: this.properties.description
-      }
-    );
+    const element: React.ReactElement<
+      IGraphConsumerProps
+    > = React.createElement(GraphConsumer, {
+      clientMode: this.properties.clientMode,
+      context: this.context
+    });
 
     ReactDom.render(element, this.domElement);
   }
@@ -33,7 +35,7 @@ export default class GraphConsumerWebPart extends BaseClientSideWebPart<IGraphCo
   }
 
   protected get dataVersion(): Version {
-    return Version.parse('1.0');
+    return Version.parse("1.0");
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -47,8 +49,12 @@ export default class GraphConsumerWebPart extends BaseClientSideWebPart<IGraphCo
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneChoiceGroup("clientMode", {
+                  label: strings.ClientModeLabel,
+                  options: [
+                    { key: ClientMode.aad, text: "AadHttpClient" },
+                    { key: ClientMode.graph, text: "MSGraphClient" }
+                  ]
                 })
               ]
             }
